@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 import joblib
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="app/templates")
 
 # Load model and vectorizer
 model = joblib.load(os.path.join("..", "model", "fake_news_model.pkl"))

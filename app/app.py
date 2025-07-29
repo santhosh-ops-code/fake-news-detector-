@@ -1,11 +1,9 @@
-# app/app.py
-
 from flask import Flask, render_template, request
 import joblib
 import os
 from pathlib import Path
 
-app = Flask(__name__, template_folder="app/templates")
+app = Flask(__name__, template_folder="templates")  # ✅ Corrected
 
 # Load model and vectorizer
 BASE_DIR = Path(__file__).resolve().parent.parent

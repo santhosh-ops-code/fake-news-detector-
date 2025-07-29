@@ -3,12 +3,14 @@
 from flask import Flask, render_template, request
 import joblib
 import os
+from pathlib import Path
 
 app = Flask(__name__, template_folder="app/templates")
 
 # Load model and vectorizer
-model = joblib.load(os.path.join("..", "model", "fake_news_model.pkl"))
-vectorizer = joblib.load(os.path.join("..", "model", "tfidf_vectorizer.pkl"))
+BASE_DIR = Path(__file__).resolve().parent.parent
+model = joblib.load(BASE_DIR / "model" / "fake_news_model.pkl")
+vectorizer = joblib.load(BASE_DIR / "model" / "tfidf_vectorizer.pkl")
 
 @app.route("/")
 def home():
